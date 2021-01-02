@@ -26,10 +26,10 @@ video.addEventListener('play', () => {
             video, new faceapi.TinyFaceDetectorOptions()
         ).withFaceLandmarks().withFaceExpressions();
 
-        const resizedResults = faceapi.resizedResults(detections, displaySize);
+        const resizedResults = faceapi.resizeResults(detections, displaySize);
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
         faceapi.draw.drawDetections(canvas, resizedResults);
         faceapi.draw.drawFaceLandmarks(canvas, resizedResults);
-        faceapi.draw.faceExpressions(canvas, resizedResults);
-    });
+        faceapi.draw.drawFaceExpressions(canvas, resizedResults);
+    }, 100);
 });
